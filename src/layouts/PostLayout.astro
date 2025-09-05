@@ -1,0 +1,65 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import frostImage from "../assets/blog-header.jpg?url";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+
+interface Props {
+  blogTitle: string;
+  title: string;
+  description: string;
+  tableOfContents: { id: string; text: string }[];
+}
+
+const { blogTitle, title, description, tableOfContents } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead title={title} description={description} />
+  </head>
+  <body class="bg-yellow-bg">
+    <figure class="flex flex-col z-10 sticky -top-96">
+      <img class="header-image" src={frostImage} alt="Angular" />
+      <figcaption class="bg-light-olive-green shadow-lg w-full px-5 py-5">
+        <h1 class="w-[900px] mx-auto">
+          {blogTitle}
+        </h1>
+      </figcaption>
+    </figure>
+    <Header />
+    <main class="relative flex justify-center items-start gap-5">
+      <aside class="sticky w-[350px] top-20">
+        <div class="p-5">
+          <h3 class="!text-xl p-2">Tabla de contenido</h3>
+          <span class="block h-[2px] bg-olive-green w-full"></span>
+          <ol class="flex flex-col gap-2 p-2">
+            {
+              tableOfContents.map((content) => (
+                <li>
+                  <a href={`#${content.id}`}>{content.text}</a>
+                </li>
+              ))
+            }
+          </ol>
+        </div>
+      </aside>
+      <article class="flex flex-col max-w-[900px]">
+        <section class="flex flex-col gap-5 mt-10 font-literata">
+          <slot />
+          <Footer />
+        </section>
+      </article>
+      <div class="w-[350px]"></div>
+    </main>
+  </body>
+</html>
+
+<style>
+  @reference "../styles/global.css";
+
+  .header-image {
+    @apply shadow-none w-full h-96 object-cover object-top rounded-none;
+  }
+</style>
