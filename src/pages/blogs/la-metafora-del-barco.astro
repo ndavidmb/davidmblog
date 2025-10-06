@@ -1,0 +1,56 @@
+---
+import { Content } from "../../markdown-posts/la-metafora-del-barco/la-metafora-del-barco.md";
+import MainLayout from "../../layouts/MainLayout.astro";
+import Photo from "../../assets/blogs/la-metafora-del-barco.png?url";
+import PlayerFooter from "../../components/PlayerFooter.vue";
+import { Icon } from "astro-icon/components";
+---
+
+<MainLayout
+  title="DavidMBlog - La metáfora del barco"
+  description=""
+  headerImage={Photo}
+>
+  <main class="font-literata w-full flex flex-col items-center">
+    <div
+      class="w-full flex justify-center sticky bg-yellow-bg/70 py-5 backdrop-blur-md top-0"
+    >
+      <div class="w-[900px] text-start">
+        <h1>La metáfora del barco</h1>
+      </div>
+    </div>
+    <div class="max-w-[900px] flex flex-col gap-5">
+      <Content />
+    </div>
+  </main>
+
+  <PlayerFooter client:only="vue">
+    <Fragment slot="back-icon">
+      <Icon width={18} height={18} name="material-symbols:arrow-back-rounded" />
+    </Fragment>
+
+    <Fragment slot="play-icon">
+      <Icon width={32} height={32} name="material-symbols:play-arrow-rounded" />
+    </Fragment>
+
+    <Fragment slot="stop-icon">
+      <Icon width={32} height={32} name="material-symbols:pause-rounded" />
+    </Fragment>
+
+    <Fragment slot="content-icon">
+      <Icon
+        width={24}
+        height={24}
+        name="material-symbols:description-outline-rounded"
+      />
+    </Fragment>
+
+    <Fragment slot="up-icon">
+      <Icon
+        width={24}
+        height={24}
+        name="material-symbols:arrow-upward-alt-rounded"
+      />
+    </Fragment>
+  </PlayerFooter>
+</MainLayout>

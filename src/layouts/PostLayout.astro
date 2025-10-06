@@ -3,6 +3,7 @@ import BaseHead from "../components/BaseHead.astro";
 import frostImage from "../assets/blog-header.jpg?url";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import { Icon } from "astro-icon/components";
 
 interface Props {
   blogTitle: string;
@@ -30,15 +31,17 @@ const { blogTitle, title, description, tableOfContents } = Astro.props;
     </figure>
     <Header />
     <main class="relative flex justify-center items-start gap-5">
-      <aside class="sticky w-[350px] top-20">
+      <aside class="sticky w-[350px] px-5 top-20">
         <div class="p-5">
-          <h3 class="!text-xl p-2">Tabla de contenido</h3>
+          <h3 class="!text-base p-2">Tabla de contenido</h3>
           <span class="block h-[2px] bg-olive-green w-full"></span>
           <ol class="flex flex-col gap-2 p-2">
             {
               tableOfContents.map((content) => (
                 <li>
-                  <a href={`#${content.id}`}>{content.text}</a>
+                  <a class="!no-underline text-sm" href={`#${content.id}`}>
+                    {content.text}
+                  </a>
                 </li>
               ))
             }
@@ -51,10 +54,67 @@ const { blogTitle, title, description, tableOfContents } = Astro.props;
           <Footer />
         </section>
       </article>
-      <div class="w-[350px]"></div>
+      <div class="w-[350px]">
+        <button
+          data-go-top
+          class="fixed w-12 h-12 grid place-items-center bg-amber-600 rounded shadow-xl bottom-10 right-10 cursor-pointer hover:bg-amber-700 hover:scale-110 transition-all duration-500"
+        >
+          <Icon
+            width={32}
+            color="#fff"
+            height={32}
+            name="material-symbols:arrow-upward-alt-rounded"
+          />
+        </button>
+      </div>
     </main>
   </body>
 </html>
+
+<script>
+  const goTopButton = document.querySelector("[data-go-top]");
+  goTopButton?.addEventListener("click", goTop);
+  function goTop() {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+  // Tabla de contenido activa
+  const tocLinks = document.querySelectorAll("aside ol a");
+  const sectionIds = Array.from(tocLinks).map((link) =>
+    link.getAttribute("href")?.replace("#", "")
+  );
+  const sections = sectionIds.map((id) => {
+    if (!id) return null;
+    return document.getElementById(id);
+  });
+
+  function setActive(id: string) {
+    tocLinks.forEach((link) => {
+      link.classList.toggle(
+        "font-bold",
+        link.getAttribute("href") === `#${id}`
+      );
+    });
+  }
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActive(entry.target.id);
+        }
+      });
+    },
+    {
+      root: null,
+      rootMargin: "0px 0px -70% 0px", // Ajusta para activar antes de llegar al top
+      threshold: 0.1,
+    }
+  );
+
+  sections.forEach((section) => {
+    if (section) observer.observe(section);
+  });
+</script>
 
 <style>
   @reference "../styles/global.css";

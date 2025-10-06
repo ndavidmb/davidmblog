@@ -12,9 +12,15 @@
     "@astrojs/mdx": "^4.3.4",
     "@astrojs/rss": "^4.0.12",
     "@astrojs/sitemap": "^3.5.1",
+    "@astrojs/vue": "^5.1.1",
+    "@iconify-json/bxl": "^1.2.2",
+    "@iconify-json/material-symbols": "^1.2.34",
     "@tailwindcss/vite": "^4.1.12",
+    "@vueuse/core": "^13.9.0",
     "astro": "^5.13.5",
+    "astro-icon": "^1.1.5",
     "sharp": "^0.34.2",
-    "tailwindcss": "^4.1.12"
+    "tailwindcss": "^4.1.12",
+    "vue": "^3.5.21"
   }
 }

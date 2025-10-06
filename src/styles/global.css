@@ -52,10 +52,13 @@ p {
   @apply text-lg text-balance;
 }
 
-img {
+.post-img {
   @apply shadow rounded;
 }
 
-a {
-  @apply underline;
+.divider {
+  width: 100%;
+  background: linear-gradient(to right, #4a6741, #b8b2a7);
+  height: 3px;
+  border-radius: 2px;
 }

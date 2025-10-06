@@ -1,27 +1,91 @@
 ---
-import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
-import PostLayout from "../layouts/PostLayout.astro";
-import { Content } from "../markdown-posts/angular-services.md";
+import MainLayout from "../layouts/MainLayout.astro";
+import AngularServicesImage from "../assets/home/servicios-de-angular-2.png?url";
+import LaMetaforaDelBarcoImage from "../assets/home/la-metafora-del-barco.png?url";
+import DelOdioAlAmorImage from "../assets/home/del-odio-al-amor.png?url";
+import HeaderImage from "../assets/home/header-image.png?url";
 ---
 
-<PostLayout
-  blogTitle="Servicios de Angular mucho más que llamados HTTP"
-  title="Servicios de angular"
-  description="Explora los diferentes tipos de servicios en Angular y cómo utilizarlos de manera efectiva."
-  tableOfContents={[
-    {
-      id: "1-llamados-a-servicios-backend-http",
-      text: "Llamados a servicios Backend HTTP",
-    },
-    { id: "2-servicios-como-estados", text: "Servicios como estados." },
-    { id: "3-servicios-como-utilidades", text: "Servicios como utilidades" },
-    {
-      id: "4-servicios-que-encapsulan-librerias",
-      text: "Servicios que encapsulan librerías",
-    },
-    { id: "5-servicios-como-fachada", text: "Servicios como fachadas" },
-    { id: "resultado-final", text: "Resultado" },
-  ]}
+<MainLayout
+  headerImage={HeaderImage}
+  title="DavidMBlog - Home"
+  description="Welcome to DavidMBlog, a personal blog about software development and lifestyle."
 >
-  <Content />
-</PostLayout>
+  <main class="max-w-[1100px] mx-auto px-12">
+    <!-- Sección -->
+    <header class="mb-5 flex items-center gap-2">
+      <div class="divider"></div>
+      <h2 class="!text-3xl text-dark-green/90">Blogs</h2>
+      <div class="divider"></div>
+    </header>
+
+    <!-- Grilla de posts -->
+    <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+      <a href="/blogs/servicios-de-angular">
+        <article
+          class="bg-[#F9F6F1] rounded-xl shadow-md hover:shadow-lg transition overflow-hidden"
+        >
+          <img
+            src={AngularServicesImage}
+            alt="Servicios de Angular"
+            class="w-full aspect-video object-cover object-top"
+          />
+          <div class="p-6 flex flex-col">
+            <span class="!text-xs font-medium text-[#3D5A40]">Tecnología</span>
+            <h3 class="mt-2 !text-xl text-[#2E2E2E]">
+              Servicios de Angular mucho más que llamados HTTP
+            </h3>
+            <p class="mt-3 !text-sm text-[#4A5568] leading-relaxed">
+              Una perspectiva sobre cómo los servicios en Angular pueden
+              transformar la arquitectura de tus aplicaciones web...
+            </p>
+            <p class="mt-4 !text-xs text-[#4A5568]">12 de Septiembre, 2025</p>
+          </div>
+        </article>
+      </a>
+      <a href="/blogs/la-metafora-del-barco">
+        <article
+          class="bg-[#F9F6F1] rounded-xl shadow-md hover:shadow-lg transition overflow-hidden"
+        >
+          <img
+            src={LaMetaforaDelBarcoImage}
+            alt="La metáfora del barco"
+            class="w-full aspect-video object-cover object-top"
+          />
+          <div class="p-6 flex flex-col">
+            <span class="!text-xs font-medium text-[#3D5A40]">Reflexión</span>
+            <h3 class="mt-2 !text-xl text-[#2E2E2E]">La metáfora del barco</h3>
+            <p class="mt-3 !text-sm text-[#4A5568] leading-relaxed">
+              Aveces simplemente olvidamos aquellas cosas importantes que
+              existen dentro de nosotros, es importante cuidar aquel navegante
+              que nos ayuda a dirigir nuestro barco...
+            </p>
+            <p class="mt-4 !text-xs text-[#4A5568]">17 de Marzo, 2025</p>
+          </div>
+        </article>
+      </a>
+      <a href="/blogs/del-odio-al-amor">
+        <article
+          class="bg-[#F9F6F1] rounded-xl shadow-md hover:shadow-lg transition overflow-hidden"
+        >
+          <img
+            src={DelOdioAlAmorImage}
+            alt="Del odio al amor también hay un solo paso"
+            class="w-full aspect-video object-cover object-center"
+          />
+          <div class="p-6 flex flex-col">
+            <span class="!text-xs font-medium text-[#3D5A40]">Reflexión</span>
+            <h3 class="mt-2 !text-xl text-[#2E2E2E]">
+              Del odio al amor también hay un solo paso
+            </h3>
+            <p class="mt-3 !text-sm text-[#4A5568] leading-relaxed">
+              Aveces al ser jueces del otro, olvidamos nuestra propia
+              naturaleza, al final amamos a una persona con piel.
+            </p>
+            <p class="mt-4 !text-xs text-[#4A5568]">17 de septiembre, 2025</p>
+          </div>
+        </article>
+      </a>
+    </div>
+  </main>
+</MainLayout>
