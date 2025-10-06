@@ -14,6 +14,10 @@ export default defineConfig({
   site: "https://example.com",
   integrations: [mdx(), sitemap(), astroIcon(), vue()],
 
+  redirects: {
+    "/": "/blogs",
+  },
+
   vite: {
     plugins: [tailwindcss()],
   },

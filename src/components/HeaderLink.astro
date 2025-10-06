@@ -33,12 +33,12 @@ const isActive = href === pathname || href === "/" + (subpath?.[0] || "");
   }
 
   .nav-link.active::after {
+    @apply h-[2px] md:h-[3px];
     content: "";
     position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
-    height: 3px;
     border-radius: 2px;
     background-color: #2e7d32;
   }

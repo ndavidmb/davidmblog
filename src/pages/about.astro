@@ -10,22 +10,26 @@ import { Icon } from "astro-icon/components";
   description="Conoce más sobre David M, su pasión por la tecnología y su misión de compartir conocimientos a través de este blog."
   headerImage={AboutImage}
 >
-  <main class="flex gap-10 max-w-[1000px]">
-    <a
-      href="https://www.instagram.com/david_nmb/"
-      target="_blank"
-      rel="noopener noreferrer"
+  <main class="flex flex-col items-center md:flex-row gap-10 max-w-[1000px]">
+    <figure
+      class="px-2 pt-2 pb-10 bg-white w-[320px] h-[420px] rounded shadow-lg"
     >
-      <figure
-        class="px-2 pt-2 pb-10 bg-white w-[320px] h-[420px] rounded shadow-lg"
+      <video
+        class="w-full object-cover h-full rounded"
+        autoplay
+        muted
+        playsinline
+        loop
+        preload="auto"
       >
-        <video
-          src={ArtVideo}
-          class="w-full object-cover h-full rounded"
-          autoplay
-          muted
-          loop></video>
+        <source src={ArtVideo} type="video/mp4" />
+      </video>
 
+      <a
+        href="https://www.instagram.com/david_nmb/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         <figcaption
           class="flex gap-1 pt-2 justify-center items-center font-story-script text-xl text-dark-green"
         >
@@ -37,9 +41,11 @@ import { Icon } from "astro-icon/components";
           />
           david_nmb
         </figcaption>
-      </figure>
-    </a>
-    <div class="font-literata w-full flex flex-col gap-3 text-balance">
+      </a>
+    </figure>
+    <div
+      class="font-literata w-full px-10 md:px-0 flex flex-col gap-3 text-balance"
+    >
       <h1 class="text-4xl font-bold">Acerca de mí</h1>
       <p class="text-lg text-balance">
         ¡Hola! Soy David Montaño, y si están aquí posiblemente quieran saber un
@@ -60,7 +66,10 @@ import { Icon } from "astro-icon/components";
         arte, de representar con cada color, con cada fotografía, y con cada
         escrito una conexión entre el lector y yo.
       </p>
-      <p class="text-lg mb-10">Espero, puedan disfrutarlo de la misma manera que yo disfrute llevando este proyecto a una realidad. 🤍</p>
+      <p class="text-lg mb-10">
+        Espero, puedan disfrutarlo de la misma manera que yo disfrute llevando
+        este proyecto a una realidad. 🤍
+      </p>
     </div>
   </main>
 </MainLayout>

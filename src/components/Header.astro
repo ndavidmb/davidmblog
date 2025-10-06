@@ -4,17 +4,17 @@ import HeaderLink from "./HeaderLink.astro";
 
 <header>
   <nav
-    class="max-w-[1000px] absolute top-10 left-0 right-0 w-full mx-auto flex z-10 bg-light-olive-green shadow-lg text-dark-green rounded-2xl px-10 py-5 justify-between items-center"
+    class="max-w-[1000px] absolute top-1 mx-1 md:top-10 left-0 right-0 md:w-full md:mx-auto flex z-10 bg-light-olive-green shadow-lg text-dark-green rounded-2xl px-5 md:px-10 py-5 justify-between items-center"
   >
-    <span class="flex flex-col gap-0 font-story-script text-3xl"
+    <span class="flex flex-col gap-0 font-story-script text-2xl md:text-3xl"
       >DavidMBlog
-      <small class="text-sm font-sans text-dark-green/70"
+      <small class="hidden md:block text-sm font-sans text-dark-green/70"
         >Un espacio fresco para explorar tecnología y estilo de vida digital
         🌱💻</small
       >
     </span>
-    <div class="flex gap-10 text-lg font-literata">
-      <HeaderLink href="/">Blogs</HeaderLink>
+    <div class="flex gap-1 md:gap-10 text-base md:text-lg font-literata">
+      <HeaderLink href="/blogs">Blogs</HeaderLink>
       <HeaderLink href="/about">Acerca de mí</HeaderLink>
     </div>
   </nav>

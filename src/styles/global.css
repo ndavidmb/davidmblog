@@ -37,19 +37,19 @@ html {
 }
 
 h1 {
-  @apply text-3xl font-bold;
+  @apply text-xl md:text-3xl font-bold;
 }
 
 h2 {
-  @apply text-2xl font-bold;
+  @apply text-lg md:text-2xl font-bold;
 }
 
 h3 {
-  @apply text-lg font-bold;
+  @apply text-base md:text-lg font-bold;
 }
 
 p {
-  @apply text-lg text-balance;
+  @apply text-base md:text-lg text-balance;
 }
 
 .post-img {

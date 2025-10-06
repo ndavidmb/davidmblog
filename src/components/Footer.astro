@@ -4,7 +4,7 @@ import { Icon } from "astro-icon/components";
 const today = new Date();
 ---
 
-<footer class="bg-dark-slate">
+<footer class="bg-dark-slate text-xs">
   &copy; {today.getFullYear()} David Montaño. Licencia MIT.
   <div class="social-links">
     <a
@@ -13,11 +13,11 @@ const today = new Date();
       target="_blank"
     >
       <span class="sr-only">Follow Astro on Instagram</span>
-      <Icon color="#E0E0E0" width={42} height={42} name="bxl:instagram-alt" />
+      <Icon color="#E0E0E0" class="icon" name="bxl:instagram-alt" />
     </a>
     <a href="https://github.com/ndavidmb" target="_blank">
       <span class="sr-only">Go to Astro's GitHub repo</span>
-      <Icon color="#E0E0E0" width={42} height={42} name="bxl:github" />
+      <Icon color="#E0E0E0" class="icon" name="bxl:github" />
     </a>
   </div>
 </footer>
@@ -26,8 +26,13 @@ const today = new Date();
   footer {
     padding: 2em 1em 6em 1em;
     text-align: center;
-    @apply rounded-t-2xl w-full mt-32 text-center text-[#E0E0E0];
+    @apply rounded-t-2xl w-full mt-5 md:mt-32 text-center text-[#E0E0E0];
   }
+
+  .icon {
+    @apply w-8 h-8 md:w-11 md:h-11;
+  }
+
   .social-links {
     display: flex;
     justify-content: center;
