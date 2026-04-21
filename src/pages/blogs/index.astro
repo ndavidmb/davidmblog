@@ -1,10 +1,10 @@
 ---
 import MainLayout from "../../layouts/MainLayout.astro";
-import AngularServicesImage from "../../assets/home/servicios-de-angular-2.png?url";
-import LaMetaforaDelBarcoImage from "../../assets/home/la-metafora-del-barco.png?url";
-import DelOdioAlAmorImage from "../../assets/home/del-odio-al-amor.png?url";
-import ElPrincipeDeTikTokImage from "../../assets/home/el-principe-de-tiktok.png?url";
 import HeaderImage from "../../assets/home/header-image.png?url";
+import MetaforaDelBarcoContext from "../../assets/blogs/IMG_1364-2.mov?url";
+import PrincipeDelTiktokContext from "../../assets/blogs/IMG_1376-1.mov?url";
+import DelAmorAlOdioContext from "../../assets/blogs/IMG_1379-1.mov?url";
+import Video from "../../components/Video.astro";
 ---
 
 <MainLayout
@@ -22,93 +22,44 @@ import HeaderImage from "../../assets/home/header-image.png?url";
 
     <!-- Grilla de posts -->
     <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-      <a href="/blogs/servicios-de-angular">
-        <article
-          class="bg-[#F9F6F1] rounded-xl shadow-md hover:shadow-lg transition overflow-hidden"
-        >
-          <img
-            src={AngularServicesImage}
-            alt="Servicios de Angular"
-            class="w-full aspect-video object-cover object-top"
-          />
-          <div class="p-6 flex flex-col">
-            <span class="!text-xs font-medium text-[#3D5A40]">Tecnología</span>
-            <h3 class="card-title">
-              Servicios de Angular mucho más que llamados HTTP
-            </h3>
-            <p class="card-description">
-              Una perspectiva sobre cómo los servicios en Angular pueden
-              transformar la arquitectura de tus aplicaciones web...
-            </p>
-            <p class="card-date">12 de Septiembre, 2025</p>
-          </div>
-        </article>
-      </a>
-      <a href="/blogs/la-metafora-del-barco">
-        <article
-          class="bg-[#F9F6F1] rounded-xl shadow-md hover:shadow-lg transition overflow-hidden"
-        >
-          <img
-            src={LaMetaforaDelBarcoImage}
-            alt="La metáfora del barco"
-            class="w-full aspect-video object-cover object-top"
-          />
-          <div class="p-6 flex flex-col">
-            <span class="!text-xs font-medium text-[#3D5A40]">Reflexión</span>
-            <h3 class="card-title">La metáfora del barco</h3>
-            <p class="card-description">
-              Aveces simplemente olvidamos aquellas cosas importantes que
-              existen dentro de nosotros, es importante cuidar aquel navegante
-              que nos ayuda a dirigir nuestro barco...
-            </p>
-            <p class="card-date">17 de Marzo, 2025</p>
-          </div>
-        </article>
-      </a>
-      <a href="/blogs/del-odio-al-amor">
-        <article
-          class="bg-[#F9F6F1] rounded-xl shadow-md hover:shadow-lg transition overflow-hidden"
-        >
-          <img
-            src={DelOdioAlAmorImage}
-            alt="Del odio al amor también hay un solo paso"
-            class="w-full aspect-video object-cover object-center"
-          />
-          <div class="p-6 flex flex-col">
-            <span class="!text-xs font-medium text-[#3D5A40]">Reflexión</span>
-            <h3 class="card-title">
-              Del odio al amor también hay un solo paso
-            </h3>
-            <p class="card-description">
-              Aveces al ser jueces del otro, olvidamos nuestra propia
-              naturaleza, al final amamos a una persona con piel.
-            </p>
-            <p class="card-date">17 de septiembre, 2025</p>
-          </div>
-        </article>
-      </a>
+      <article
+        class="bg-[#F9F6F1] rounded-xl shadow-md hover:shadow-lg transition overflow-hidden"
+      >
+        <Video videoUrl={MetaforaDelBarcoContext} />
+        <div class="p-6 flex flex-col">
+          <span class="!text-xs font-medium text-[#3D5A40]">Reflexión</span>
+          <h3 class="card-title">La metáfora del barco</h3>
+          <a class="underline" href="/blogs/la-metafora-del-barco"
+            >Leer post 📖</a
+          >
+          <p class="card-date">17 de Marzo, 2025</p>
+        </div>
+      </article>
+      <article
+        class="bg-[#F9F6F1] rounded-xl shadow-md hover:shadow-lg transition overflow-hidden"
+      >
+        <Video videoUrl={DelAmorAlOdioContext} />
+        <div class="p-6 flex flex-col">
+          <span class="!text-xs font-medium text-[#3D5A40]">Reflexión</span>
+          <h3 class="card-title">Del odio al amor también hay un solo paso</h3>
+          <a class="underline" href="/blogs/del-odio-al-amor">Leer post 📖</a>
+          <p class="card-date">17 de septiembre, 2025</p>
+        </div>
+      </article>
 
-      <a href="/blogs/el-principe-de-tiktok">
-        <article
-          class="bg-[#F9F6F1] rounded-xl shadow-md hover:shadow-lg transition overflow-hidden"
-        >
-          <img
-            src={ElPrincipeDeTikTokImage}
-            alt="El príncipe de TikTok"
-            class="w-full aspect-video object-cover object-center"
-          />
-          <div class="p-6 flex flex-col">
-            <span class="!text-xs font-medium text-[#3D5A40]">Reflexión</span>
-            <h3 class="card-title">El príncipe de TikTok</h3>
-            <p class="card-description">
-              Aquí quiero recordar que todo lo que está detrás de cada vídeo que
-              consumimos, puede llegar a ser un personaje. Un anhelo, un deseo,
-              o un recuerdo.
-            </p>
-            <p class="card-date">5 de noviembre, 2025</p>
-          </div>
-        </article>
-      </a>
+      <article
+        class="bg-[#F9F6F1] rounded-xl shadow-md hover:shadow-lg transition overflow-hidden"
+      >
+        <Video videoUrl={PrincipeDelTiktokContext} />
+        <div class="p-6 flex flex-col">
+          <span class="!text-xs font-medium text-[#3D5A40]">Reflexión</span>
+          <h3 class="card-title">El príncipe de TikTok</h3>
+          <a class="underline" href="/blogs/el-principe-del-tiktok"
+            >Leer post 📖</a
+          >
+          <p class="card-date">5 de noviembre, 2025</p>
+        </div>
+      </article>
     </div>
   </main>
 </MainLayout>
