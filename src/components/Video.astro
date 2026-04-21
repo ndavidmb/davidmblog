@@ -2,10 +2,65 @@
 const { videoUrl } = Astro.props;
 ---
 
-<video
-  class="h-72 object-cover w-full"
-  onclick="this.paused ? this.play() : this.pause();"
->
-  <source src={videoUrl} type="video/mp4" />
-  Your browser does not support the video tag.
-</video>
+<div class="relative group" data-video-player>
+  <video class="h-72 object-cover w-full cursor-pointer" data-video>
+    <source src={videoUrl} type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+
+  <button
+    type="button"
+    class="absolute inset-0 m-auto h-14 w-14 rounded-full bg-black/60 text-white grid place-items-center transition-all duration-200 group-hover:scale-105"
+    data-toggle
+    aria-label="Reproducir video"
+  >
+    <span data-icon-play aria-hidden="true">
+      <svg viewBox="0 0 24 24" class="h-7 w-7 fill-current">
+        <path d="M8 5v14l11-7z" />
+      </svg>
+    </span>
+    <span data-icon-pause class="hidden" aria-hidden="true">
+      <svg viewBox="0 0 24 24" class="h-7 w-7 fill-current">
+        <path d="M7 5h4v14H7zm6 0h4v14h-4z" />
+      </svg>
+    </span>
+  </button>
+</div>
+
+<script is:inline>
+  document.querySelectorAll('[data-video-player]').forEach((player) => {
+    if (player.dataset.bound === 'true') return;
+    player.dataset.bound = 'true';
+
+    const video = player.querySelector('[data-video]');
+    const button = player.querySelector('[data-toggle]');
+    const playIcon = player.querySelector('[data-icon-play]');
+    const pauseIcon = player.querySelector('[data-icon-pause]');
+
+    if (!video || !button || !playIcon || !pauseIcon) return;
+
+    const syncState = () => {
+      const isPaused = video.paused;
+      playIcon.classList.toggle('hidden', !isPaused);
+      pauseIcon.classList.toggle('hidden', isPaused);
+      button.classList.toggle('opacity-0', !isPaused);
+      button.classList.toggle('pointer-events-none', !isPaused);
+      button.setAttribute('aria-label', isPaused ? 'Reproducir video' : 'Pausar video');
+    };
+
+    const togglePlayback = () => {
+      if (video.paused) {
+        video.play();
+      } else {
+        video.pause();
+      }
+    };
+
+    button.addEventListener('click', togglePlayback);
+    video.addEventListener('click', togglePlayback);
+    video.addEventListener('play', syncState);
+    video.addEventListener('pause', syncState);
+
+    syncState();
+  });
+</script>

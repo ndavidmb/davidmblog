@@ -5,6 +5,7 @@ import MetaforaDelBarcoContext from "../../assets/blogs/IMG_1364-2.mov?url";
 import PrincipeDelTiktokContext from "../../assets/blogs/IMG_1376-1.mov?url";
 import DelAmorAlOdioContext from "../../assets/blogs/IMG_1379-1.mov?url";
 import Video from "../../components/Video.astro";
+import PostArticle from "../../components/PostArticle.astro";
 ---
 
 <MainLayout
@@ -22,60 +23,27 @@ import Video from "../../components/Video.astro";
 
     <!-- Grilla de posts -->
     <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-      <article
-        class="bg-[#F9F6F1] rounded-xl shadow-md hover:shadow-lg transition overflow-hidden"
-      >
-        <Video videoUrl={MetaforaDelBarcoContext} />
-        <div class="p-6 flex flex-col">
-          <span class="!text-xs font-medium text-[#3D5A40]">Reflexión</span>
-          <h3 class="card-title">La metáfora del barco</h3>
-          <a class="underline" href="/blogs/la-metafora-del-barco"
-            >Leer post 📖</a
-          >
-          <p class="card-date">17 de Marzo, 2025</p>
-        </div>
-      </article>
-      <article
-        class="bg-[#F9F6F1] rounded-xl shadow-md hover:shadow-lg transition overflow-hidden"
-      >
-        <Video videoUrl={DelAmorAlOdioContext} />
-        <div class="p-6 flex flex-col">
-          <span class="!text-xs font-medium text-[#3D5A40]">Reflexión</span>
-          <h3 class="card-title">Del odio al amor también hay un solo paso</h3>
-          <a class="underline" href="/blogs/del-odio-al-amor">Leer post 📖</a>
-          <p class="card-date">17 de septiembre, 2025</p>
-        </div>
-      </article>
-
-      <article
-        class="bg-[#F9F6F1] rounded-xl shadow-md hover:shadow-lg transition overflow-hidden"
-      >
-        <Video videoUrl={PrincipeDelTiktokContext} />
-        <div class="p-6 flex flex-col">
-          <span class="!text-xs font-medium text-[#3D5A40]">Reflexión</span>
-          <h3 class="card-title">El príncipe de TikTok</h3>
-          <a class="underline" href="/blogs/el-principe-del-tiktok"
-            >Leer post 📖</a
-          >
-          <p class="card-date">5 de noviembre, 2025</p>
-        </div>
-      </article>
+      <PostArticle
+        videoUrl={MetaforaDelBarcoContext}
+        tag="Reflexión"
+        title="La metáfora del barco"
+        date="17 de Marzo, 2025"
+        blogUrl="/blogs/la-metafora-del-barco"
+      />
+      <PostArticle
+        videoUrl={DelAmorAlOdioContext}
+        tag="Reflexión"
+        title="Del odio al amor también hay un solo paso"
+        date="17 de septiembre, 2025"
+        blogUrl="/blogs/del-odio-al-amor"
+      />
+      <PostArticle
+        videoUrl={PrincipeDelTiktokContext}
+        tag="Reflexión"
+        title="El príncipe de TikTok"
+        date="5 de noviembre, 2025"
+        blogUrl="/blogs/el-principe-del-tiktok"
+      />
     </div>
   </main>
 </MainLayout>
-
-<style>
-  @reference "../../styles/global.css";
-
-  .card-title {
-    @apply mt-2 text-lg md:!text-xl text-[#2E2E2E];
-  }
-
-  .card-description {
-    @apply md:mt-3 !text-sm text-[#4A5568] leading-relaxed;
-  }
-
-  .card-date {
-    @apply mt-3 md:mt-4 !text-xs text-[#4A5568];
-  }
-</style>
