@@ -4,7 +4,9 @@ import HeaderImage from "../../assets/home/header-image.png?url";
 import MetaforaDelBarcoContext from "../../assets/blogs/IMG_1364-2.mov?url";
 import PrincipeDelTiktokContext from "../../assets/blogs/IMG_1376-1.mov?url";
 import DelAmorAlOdioContext from "../../assets/blogs/IMG_1379-1.mov?url";
-import Video from "../../components/Video.astro";
+import MetaforaDelBarcoPoster from "../../assets/blogs/la-metafora-del-barco.png?url";
+import DelAmorAlOdioPoster from "../../assets/blogs/del-odio-al-amor.png?url";
+import PrincipeDelTiktokPoster from "../../assets/blogs/el-principe-de-tiktok.jpeg?url";
 import PostArticle from "../../components/PostArticle.astro";
 ---
 
@@ -25,6 +27,7 @@ import PostArticle from "../../components/PostArticle.astro";
     <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
       <PostArticle
         videoUrl={MetaforaDelBarcoContext}
+        posterUrl={MetaforaDelBarcoPoster}
         tag="Reflexión"
         title="La metáfora del barco"
         date="17 de Marzo, 2025"
@@ -32,6 +35,7 @@ import PostArticle from "../../components/PostArticle.astro";
       />
       <PostArticle
         videoUrl={DelAmorAlOdioContext}
+        posterUrl={DelAmorAlOdioPoster}
         tag="Reflexión"
         title="Del odio al amor también hay un solo paso"
         date="17 de septiembre, 2025"
@@ -39,6 +43,7 @@ import PostArticle from "../../components/PostArticle.astro";
       />
       <PostArticle
         videoUrl={PrincipeDelTiktokContext}
+        posterUrl={PrincipeDelTiktokPoster}
         tag="Reflexión"
         title="El príncipe de TikTok"
         date="5 de noviembre, 2025"

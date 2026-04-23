@@ -1,9 +1,16 @@
 ---
-const { videoUrl } = Astro.props;
+const { videoUrl, posterUrl } = Astro.props;
 ---
 
 <div class="relative group" data-video-player>
-  <video class="h-72 object-cover w-full cursor-pointer" data-video>
+  <video
+    class="h-72 object-cover w-full cursor-pointer"
+    data-video
+    poster={posterUrl}
+    preload="metadata"
+    playsinline
+    webkit-playsinline="true"
+  >
     <source src={videoUrl} type="video/mp4" />
     Your browser does not support the video tag.
   </video>
